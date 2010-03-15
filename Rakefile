@@ -5,16 +5,18 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "facebook"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "mathieu.fosse@gmail.com"
+    gem.summary = %Q{Facebook library for Web application}
+    gem.description = %Q{Facebook library for Web application}
+    gem.email = "mathieu@tigerlilyapps.com"
     gem.homepage = "http://github.com/pointcom/facebook"
     gem.authors = ["Mathieu Fosse"]
+    #gem.add_dependency "rack-facebook", ">= 0.0.3"
+    gem.add_dependency "httparty", ">= 0.5.2"
+    
+    # Tests
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "cucumber", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-    gem.add_dependency "mini_fb", ">= 0.2.2"
-    gem.add_dependency "rack-facebook", ">= 0.0.3"
+    gem.add_development_dependency "fakeweb", ">= 1.2.8"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
