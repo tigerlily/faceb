@@ -4,8 +4,8 @@ module Facebook
       Session.current
     end
     
-    def new(api_key = nil, secret_key = nil)
-      Session.create(api_key, secret_key)
+    def new(api_key = nil, secret_key = nil, session_key = nil)
+      Session.create(api_key, secret_key, session_key)
     end
     
     def call(api_key, secret_key, method, params = {})

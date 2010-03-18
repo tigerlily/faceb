@@ -12,6 +12,7 @@ begin
     gem.authors = ["Mathieu Fosse"]
     #gem.add_dependency "rack-facebook", ">= 0.0.3"
     gem.add_dependency "httparty", ">= 0.5.2"
+    gem.add_dependency "rack-facebook", ">= 0.0.3"
     
     # Tests
     gem.add_development_dependency "rspec", ">= 1.2.9"

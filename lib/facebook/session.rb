@@ -1,6 +1,6 @@
 module Facebook
   class Session
-    attr_reader :api_key, :secret_key, :session_key
+    attr_reader :api_key, :secret_key, :session_key, :user_uid
     
     def self.create(api_key, secret_key, session_key = nil)
       @current_session = self.new(api_key, secret_key, session_key) unless defined?(@current_session) && !!@current_session
@@ -19,6 +19,7 @@ module Facebook
       @api_key      = api_key
       @secret_key   = secret_key
       @session_key  = session_key
+      @user_uid     = self.call('users.getLoggedInUser', :session_key => @session_key).data
     end
     
     def call(method, params ={})

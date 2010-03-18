@@ -9,9 +9,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-03-14}
-  s.description = %q{TODO: longer description of your gem}
-  s.email = %q{mathieu.fosse@gmail.com}
+  s.date = %q{2010-03-18}
+  s.default_executable = %q{console}
+  s.description = %q{Facebook library for Web application}
+  s.email = %q{mathieu@tigerlilyapps.com}
+  s.executables = ["console"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -23,11 +25,18 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "features/facebook.feature",
-     "features/step_definitions/facebook_steps.rb",
+     "bin/console",
+     "facebook.gemspec",
+     "features/facebook-session.feature",
+     "features/step_definitions/facebook-session_steps.rb",
      "features/support/env.rb",
      "lib/facebook.rb",
-     "spec/facebook_spec.rb",
+     "lib/facebook/api.rb",
+     "lib/facebook/base.rb",
+     "lib/facebook/session.rb",
+     "spec/facebook_api_spec.rb",
+     "spec/facebook_base_spec.rb",
+     "spec/facebook_session_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
@@ -35,9 +44,11 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{Facebook library for Web application}
   s.test_files = [
-    "spec/facebook_spec.rb",
+    "spec/facebook_api_spec.rb",
+     "spec/facebook_base_spec.rb",
+     "spec/facebook_session_spec.rb",
      "spec/spec_helper.rb"
   ]
 
@@ -46,21 +57,24 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<httparty>, [">= 0.5.2"])
+      s.add_runtime_dependency(%q<rack-facebook>, [">= 0.0.3"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_development_dependency(%q<cucumber>, [">= 0"])
-      s.add_runtime_dependency(%q<mini_fb>, [">= 0.2.2"])
-      s.add_runtime_dependency(%q<rack-facebook>, [">= 0.0.3"])
+      s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
     else
+      s.add_dependency(%q<httparty>, [">= 0.5.2"])
+      s.add_dependency(%q<rack-facebook>, [">= 0.0.3"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<mini_fb>, [">= 0.2.2"])
-      s.add_dependency(%q<rack-facebook>, [">= 0.0.3"])
+      s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
     end
   else
+    s.add_dependency(%q<httparty>, [">= 0.5.2"])
+    s.add_dependency(%q<rack-facebook>, [">= 0.0.3"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
     s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<mini_fb>, [">= 0.2.2"])
-    s.add_dependency(%q<rack-facebook>, [">= 0.0.3"])
+    s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
   end
 end
 
