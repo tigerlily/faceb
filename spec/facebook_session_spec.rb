@@ -3,8 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 module Facebook
   describe Session do
     
-    
-
     # Create session
     context "create session" do
       before(:each) do
@@ -37,8 +35,10 @@ module Facebook
       # Session key
       describe "session_key" do
         it "should be able to initialize a session with a session key" do
+          mock.instance_of(Facebook::Session).call('users.getLoggedInUser', :session_key => 'session-key') { Facebook::Api::Response.new("12345") }
           session = Facebook::Session.new('api-key', 'secret-key', 'session-key')
           session.session_key.should == 'session-key'
+          session.user_uid.should == '12345'
         end
       end
       
