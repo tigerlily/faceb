@@ -5,6 +5,8 @@ require 'facebook'
 require 'spec'
 require 'spec/autorun'
 
+require 'rails_spec_helper' if ENV["FACEBOOK_TEST"] == 'rails'
+
 # Stop all requests
 require 'fakeweb'
 FakeWeb.allow_net_connect = false

@@ -4,6 +4,7 @@ module Facebook
       
       def self.included(controller)
         controller.extend(ClassMethods)
+        controller.before_filter :set_facebook_request_format
       end
       
       def create_facebook_session
@@ -15,10 +16,22 @@ module Facebook
         !!env['facebook.in_canvas']
       end
       
+      # Return true if request comes from an Facebook iframe
+      def in_iframe?
+        !!env["facebook.in_iframe"]
+      end
+      
+      # Set the request format 
+      def set_facebook_request_format
+        if in_canvas? && !in_iframe?
+          request.format = :fbml
+        end
+      end
+      
       # Class methods
       module ClassMethods
-        def method_name
-          
+        def ensure_authenticated_to_facebook(options = {})
+          before_filter :create_facebook_session, options
         end
       end
     end

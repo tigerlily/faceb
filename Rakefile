@@ -18,6 +18,7 @@ begin
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "cucumber", ">= 0"
     gem.add_development_dependency "fakeweb", ">= 1.2.8"
+    gem.add_development_dependency "rr", ">= 0.10.10"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
@@ -27,8 +28,18 @@ end
 require 'spec/rake/spectask'
 Spec::Rake::SpecTask.new(:spec) do |spec|
   spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+  spec.spec_files = FileList['spec/*_spec.rb']
 end
+
+Spec::Rake::SpecTask.new(:spec_rails) do |spec|
+  ruby_path = `which ruby`.chomp
+  spec.ruby_cmd = "FACEBOOK_TEST=rails #{ruby_path}"
+  spec.libs << 'lib' << 'spec'
+  spec.spec_files = FileList['spec/rails/*_spec.rb']
+end
+
+desc 'Run Facebook tests for all ORMs.'
+task :spec_all => [:spec, :spec_rails]
 
 Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.libs << 'lib' << 'spec'

@@ -19,6 +19,11 @@ module Facebook
       }
     end
     
+     # Registered FBML request type
+     initializer "facebook.add_fbml_request_type" do |app|
+       Mime::Type.register "text/html", :fbml
+     end
+    
     # load Facebook Specific tasks
     rake_tasks do
       load "facebook/rails/tasks/facebook.tasks"

@@ -18,4 +18,8 @@ describe Facebook do
       Facebook.current_session.should be_nil
     end
   end
+  
+  it "should not be included in Facebook" do
+    Facebook.should_not respond_to(:config)
+  end
 end

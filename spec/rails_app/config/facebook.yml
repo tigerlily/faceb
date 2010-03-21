@@ -1,0 +1,3 @@
+test:
+  api_key: 'rails-api-key'
+  secret_key: 'rails-secret-key'
