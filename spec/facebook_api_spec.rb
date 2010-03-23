@@ -30,9 +30,12 @@ module Facebook
           {"error_msg" => "error message", "error_code" => 100} 
         }
         
-        response = Facebook.current_session.call("facebook.method", :param => 1)
-        response.error[:code].should == 100
-        response.error[:msg].should == "error message"
+        lambda {
+          response = Facebook.current_session.call("facebook.method", :param => 1)
+        }.should raise_error(Facebook::Api::Error, "Facebook error 100 : 'error message'")
+        #response = Facebook.current_session.call("facebook.method", :param => 1)
+        #response.error[:code].should == 100
+        #response.error[:msg].should == "error message"
       end
       
       # Session Key
@@ -48,12 +51,16 @@ module Facebook
         
         
         it "should pass the current session_key if param is true" do
-          mock(Facebook::Api).post(Facebook::Api::API_SERVER_URL,  satisfy {|arg| arg[:body][:session_key] == "session-key"} )
+          mock(Facebook::Api).post(Facebook::Api::API_SERVER_URL,  satisfy {|arg| arg[:body][:session_key] == "session-key"} ) {
+            {"ok" => "ok"}
+          }
           @api.call('method', :session_key => true)
         end
         
         it "should be able to averride the current session_key" do
-          mock(Facebook::Api).post(Facebook::Api::API_SERVER_URL,  satisfy {|arg| arg[:body][:session_key] == "my-new-session-key"} )
+          mock(Facebook::Api).post(Facebook::Api::API_SERVER_URL,  satisfy {|arg| arg[:body][:session_key] == "my-new-session-key"} ) {
+            {"ok" => "ok"}
+          }
           @api.call('method', :session_key => 'my-new-session-key')
         end
       end

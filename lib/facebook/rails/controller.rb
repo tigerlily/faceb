@@ -11,6 +11,10 @@ module Facebook
         Facebook::Session.create(Facebook.config.api_key, Facebook.config.secret_key, env['facebook.session_key'])
       end
       
+      def ensure_authenticated_to_facebook
+        create_facebook_session
+      end
+      
       # Return true if request comes from a Facebook canvas
       def in_canvas?
         !!env['facebook.in_canvas']
@@ -31,7 +35,7 @@ module Facebook
       # Class methods
       module ClassMethods
         def ensure_authenticated_to_facebook(options = {})
-          before_filter :create_facebook_session, options
+          before_filter :ensure_authenticated_to_facebook, options
         end
       end
     end

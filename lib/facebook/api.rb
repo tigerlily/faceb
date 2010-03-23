@@ -34,6 +34,7 @@ module Facebook
       
       def initialize(data)
         @data = data
+        raise Error.new(data["error_code"], data["error_msg"]) if data.include?("error_msg")
       end
       
       def method_missing(name, *args)
@@ -48,5 +49,13 @@ module Facebook
         {:code =>  @data['error_code'], :msg => @data['error_msg'] }
       end
     end
+    
+    # Api Error
+    class Error < StandardError
+      def initialize(error_code, error_msg)
+        super("Facebook error #{error_code} : '#{error_msg}'")
+      end
+    end
+    
   end
 end
