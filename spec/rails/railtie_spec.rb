@@ -6,9 +6,9 @@ describe "Rails app initialization" do
   end
   
   it "should load facebook config file" do
-    Facebook.config.should_not be_nil
-    Facebook.config.api_key.should == 'rails-api-key'
-    Facebook.config.secret_key.should == 'rails-secret-key'
+    FaceB.config.should_not be_nil
+    FaceB.config.api_key.should == 'rails-api-key'
+    FaceB.config.secret_key.should == 'rails-secret-key'
   end
   
   it "should add Rack-Facebook as a middleware" do

@@ -1,4 +1,4 @@
-namespace :facebook do
+namespace :faceb do
   
   tunnel_ns = namespace :tunnel do 
     # Courtesy of Christopher Haupt

@@ -1,18 +1,18 @@
 require 'rails'
-require 'facebook'
+require 'faceb'
 require 'rack/facebook'
 
-module Facebook
+module FaceB
   class Railtie < ::Rails::Railtie
     railtie_name :facebook
 
-    # Load the Facebook config file
-    initializer "facebook.load_config_file" do |app|
-      @facebook_config = Facebook::Configuration.load_config_file(File.join(::Rails.root, 'config', 'facebook.yml'), ::Rails.env)
+    # Load the FaceB config file
+    initializer "faceb.load_config_file" do |app|
+      @facebook_config = FaceB::Configuration.load_config_file(File.join(::Rails.root, 'config', 'faceb.yml'), ::Rails.env)
     end
     
     # Load Rack-Facebook as a middleware    
-    initializer "facebook.add_middleware" do |app|
+    initializer "faceb.add_middleware" do |app|
       app.config.middleware.use Rack::Facebook, {
         :application_secret => @facebook_config.secret_key, 
         :api_key => @facebook_config.api_key
@@ -20,13 +20,13 @@ module Facebook
     end
     
      # Registered FBML request type
-     initializer "facebook.add_fbml_request_type" do |app|
+     initializer "faceb.add_fbml_request_type" do |app|
        Mime::Type.register "text/html", :fbml
      end
     
     # load Facebook Specific tasks
     rake_tasks do
-      load "facebook/rails/tasks/facebook.tasks"
+      load "faceb/rails/tasks/faceb.tasks"
     end
   end
 end

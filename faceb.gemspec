@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{facebook}
+  s.name = %q{faceb}
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-03-23}
+  s.date = %q{2010-03-25}
   s.default_executable = %q{console}
-  s.description = %q{Facebook library for Web application}
+  s.description = %q{Facebook library}
   s.email = %q{mathieu@tigerlilyapps.com}
   s.executables = ["console"]
   s.extra_rdoc_files = [
@@ -27,23 +27,9 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "bin/console",
-     "facebook.gemspec",
      "features/facebook-session.feature",
      "features/step_definitions/facebook-session_steps.rb",
      "features/support/env.rb",
-     "lib/facebook.rb",
-     "lib/facebook/api.rb",
-     "lib/facebook/base.rb",
-     "lib/facebook/rails.rb",
-     "lib/facebook/rails/base.rb",
-     "lib/facebook/rails/configuration.rb",
-     "lib/facebook/rails/controller.rb",
-     "lib/facebook/rails/railtie.rb",
-     "lib/facebook/rails/tasks/facebook.tasks",
-     "lib/facebook/session.rb",
-     "spec/facebook_api_spec.rb",
-     "spec/facebook_base_spec.rb",
-     "spec/facebook_session_spec.rb",
      "spec/rails/configuration_sepc.rb",
      "spec/rails/controller_spec.rb",
      "spec/rails/railtie_spec.rb",
@@ -58,7 +44,6 @@ Gem::Specification.new do |s|
      "spec/rails_app/config/environments/development.rb",
      "spec/rails_app/config/environments/production.rb",
      "spec/rails_app/config/environments/test.rb",
-     "spec/rails_app/config/facebook.yml",
      "spec/rails_app/config/initializers/backtrace_silencers.rb",
      "spec/rails_app/config/initializers/cookie_verification_secret.rb",
      "spec/rails_app/config/initializers/inflections.rb",
@@ -86,15 +71,15 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/pointcom/facebook}
+  s.homepage = %q{http://github.com/pointcom/faceb}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Facebook library for Web application}
+  s.summary = %q{Facebook library}
   s.test_files = [
-    "spec/facebook_api_spec.rb",
-     "spec/facebook_base_spec.rb",
-     "spec/facebook_session_spec.rb",
+    "spec/faceb_api_spec.rb",
+     "spec/faceb_base_spec.rb",
+     "spec/faceb_session_spec.rb",
      "spec/rails/configuration_sepc.rb",
      "spec/rails/controller_spec.rb",
      "spec/rails/railtie_spec.rb",

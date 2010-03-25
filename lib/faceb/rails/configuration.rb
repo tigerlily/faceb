@@ -1,6 +1,6 @@
 require 'yaml'
 
-module Facebook
+module FaceB
   class Configuration
     def initialize(config)
       @config = config

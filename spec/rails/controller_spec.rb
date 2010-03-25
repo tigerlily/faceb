@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 # Dummy Controller
 Dummy::Application.initialize!
 class MockController < ApplicationController
-  include Facebook::Rails::Controller
+  include FaceB::Rails::Controller
   
   ensure_authenticated_to_facebook :only => :action1
   

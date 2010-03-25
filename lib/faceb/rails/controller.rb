@@ -1,4 +1,4 @@
-module Facebook
+module FaceB
   module Rails
     module Controller
       
@@ -8,7 +8,7 @@ module Facebook
       end
       
       def create_facebook_session
-        Facebook::Session.create(Facebook.config.api_key, Facebook.config.secret_key, env['facebook.session_key'])
+        FaceB::Session.create(Facebook.config.api_key, Facebook.config.secret_key, env['facebook.session_key'])
       end
       
       def ensure_authenticated_to_facebook

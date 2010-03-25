@@ -5,13 +5,12 @@ require 'yard'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "facebook"
-    gem.summary = %Q{Facebook library for Web application}
-    gem.description = %Q{Facebook library for Web application}
+    gem.name = "faceb"
+    gem.summary = %Q{Facebook library}
+    gem.description = %Q{Facebook library}
     gem.email = "mathieu@tigerlilyapps.com"
-    gem.homepage = "http://github.com/pointcom/facebook"
+    gem.homepage = "http://github.com/pointcom/faceb"
     gem.authors = ["Mathieu Fosse"]
-    #gem.add_dependency "rack-facebook", ">= 0.0.3"
     gem.add_dependency "httparty", ">= 0.5.2"
     gem.add_dependency "rack-facebook", ">= 0.0.3"
     
@@ -34,12 +33,12 @@ end
 
 Spec::Rake::SpecTask.new(:spec_rails) do |spec|
   ruby_path = `which ruby`.chomp
-  spec.ruby_cmd = "FACEBOOK_TEST=rails #{ruby_path}"
+  spec.ruby_cmd = "FACEB_TEST=rails #{ruby_path}"
   spec.libs << 'lib' << 'spec'
   spec.spec_files = FileList['spec/rails/*_spec.rb']
 end
 
-desc 'Run Facebook tests for all ORMs.'
+desc 'Run all FaceB tests.'
 task :spec_all => [:spec, :spec_rails]
 
 Spec::Rake::SpecTask.new(:rcov) do |spec|
@@ -68,7 +67,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "facebook #{version}"
+  rdoc.title = "FaceB #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

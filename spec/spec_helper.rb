@@ -1,11 +1,11 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'rubygems'
-require 'facebook'
+require 'faceb'
 require 'spec'
 require 'spec/autorun'
 
-require 'rails_spec_helper' if ENV["FACEBOOK_TEST"] == 'rails'
+require 'rails_spec_helper' if ENV["FACEB_TEST"] == 'rails'
 
 # Stop all requests
 require 'fakeweb'
@@ -19,6 +19,6 @@ Spec::Runner.configure do |config|
   
   # Reset the session after each example
   config.prepend_before(:each) do
-    Facebook::Session.reset!
+    FaceB::Session.reset!
   end
 end

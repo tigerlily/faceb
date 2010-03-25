@@ -1,4 +1,4 @@
-module Facebook
+module FaceB
   class Session
     attr_reader :api_key, :secret_key, :session_key, :user_uid
     
