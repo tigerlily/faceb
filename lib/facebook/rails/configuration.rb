@@ -11,11 +11,19 @@ module Facebook
     end
     
     
-    
+    ##
+    # Load a config file to create a new instance of Configuration
+    # 
+    # @param [String] file File path
+    # @param [String] environment The Rails environment
     def self.load_config_file(file, environment)
       @config = self.new(YAML.load_file(file)[environment])
     end
     
+    ##
+    # Return the current configuration instance
+    # 
+    # @return [Facebook::Configuration] The current configuration instance
     def self.config
       @config
     end

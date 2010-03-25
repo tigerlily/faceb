@@ -20,7 +20,7 @@ module Facebook
         !!env['facebook.in_canvas']
       end
       
-      # Return true if request comes from an Facebook iframe
+      # Return true if request comes from a Facebook iframe
       def in_iframe?
         !!env["facebook.in_iframe"]
       end

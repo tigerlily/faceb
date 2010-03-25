@@ -12,6 +12,14 @@ module Facebook
       @session  = session
     end
     
+    ##
+    # Call a Facebook API method
+    # 
+    # @param [String] method The API method to call
+    # @param [Hash] params Params to pass to API method call
+    # @option params [Boolean, String] :session_key if true use the current Facebook session key else if string use this string as session key
+    # 
+    # @return [Facebook::Api::Response] The API method response
     def call(method, params = {})
       params[:call_id] = Time.now.tv_sec.to_s if params.delete(:call_id)
       params[:session_key] = @session.session_key if params[:session_key] == true && !!@session.session_key
