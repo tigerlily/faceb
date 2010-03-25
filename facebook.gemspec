@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-03-18}
+  s.date = %q{2010-03-23}
   s.default_executable = %q{console}
   s.description = %q{Facebook library for Web application}
   s.email = %q{mathieu@tigerlilyapps.com}
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "Gemfile",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -33,10 +34,55 @@ Gem::Specification.new do |s|
      "lib/facebook.rb",
      "lib/facebook/api.rb",
      "lib/facebook/base.rb",
+     "lib/facebook/rails.rb",
+     "lib/facebook/rails/base.rb",
+     "lib/facebook/rails/configuration.rb",
+     "lib/facebook/rails/controller.rb",
+     "lib/facebook/rails/railtie.rb",
+     "lib/facebook/rails/tasks/facebook.tasks",
      "lib/facebook/session.rb",
      "spec/facebook_api_spec.rb",
      "spec/facebook_base_spec.rb",
      "spec/facebook_session_spec.rb",
+     "spec/rails/configuration_sepc.rb",
+     "spec/rails/controller_spec.rb",
+     "spec/rails/railtie_spec.rb",
+     "spec/rails_app/app/controllers/application_controller.rb",
+     "spec/rails_app/app/controllers/posts_controller.rb",
+     "spec/rails_app/app/helpers/application_helper.rb",
+     "spec/rails_app/config.ru",
+     "spec/rails_app/config/application.rb",
+     "spec/rails_app/config/boot.rb",
+     "spec/rails_app/config/database.yml",
+     "spec/rails_app/config/environment.rb",
+     "spec/rails_app/config/environments/development.rb",
+     "spec/rails_app/config/environments/production.rb",
+     "spec/rails_app/config/environments/test.rb",
+     "spec/rails_app/config/facebook.yml",
+     "spec/rails_app/config/initializers/backtrace_silencers.rb",
+     "spec/rails_app/config/initializers/cookie_verification_secret.rb",
+     "spec/rails_app/config/initializers/inflections.rb",
+     "spec/rails_app/config/initializers/mime_types.rb",
+     "spec/rails_app/config/initializers/session_store.rb",
+     "spec/rails_app/config/locales/en.yml",
+     "spec/rails_app/config/routes.rb",
+     "spec/rails_app/log/development.log",
+     "spec/rails_app/log/production.log",
+     "spec/rails_app/log/server.log",
+     "spec/rails_app/log/test.log",
+     "spec/rails_app/public/404.html",
+     "spec/rails_app/public/422.html",
+     "spec/rails_app/public/500.html",
+     "spec/rails_app/public/favicon.ico",
+     "spec/rails_app/public/javascripts/application.js",
+     "spec/rails_app/public/javascripts/controls.js",
+     "spec/rails_app/public/javascripts/dragdrop.js",
+     "spec/rails_app/public/javascripts/effects.js",
+     "spec/rails_app/public/javascripts/prototype.js",
+     "spec/rails_app/public/javascripts/rails.js",
+     "spec/rails_app/public/stylesheets/.gitkeep",
+     "spec/rails_app/script/rails",
+     "spec/rails_spec_helper.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
@@ -49,6 +95,25 @@ Gem::Specification.new do |s|
     "spec/facebook_api_spec.rb",
      "spec/facebook_base_spec.rb",
      "spec/facebook_session_spec.rb",
+     "spec/rails/configuration_sepc.rb",
+     "spec/rails/controller_spec.rb",
+     "spec/rails/railtie_spec.rb",
+     "spec/rails_app/app/controllers/application_controller.rb",
+     "spec/rails_app/app/controllers/posts_controller.rb",
+     "spec/rails_app/app/helpers/application_helper.rb",
+     "spec/rails_app/config/application.rb",
+     "spec/rails_app/config/boot.rb",
+     "spec/rails_app/config/environment.rb",
+     "spec/rails_app/config/environments/development.rb",
+     "spec/rails_app/config/environments/production.rb",
+     "spec/rails_app/config/environments/test.rb",
+     "spec/rails_app/config/initializers/backtrace_silencers.rb",
+     "spec/rails_app/config/initializers/cookie_verification_secret.rb",
+     "spec/rails_app/config/initializers/inflections.rb",
+     "spec/rails_app/config/initializers/mime_types.rb",
+     "spec/rails_app/config/initializers/session_store.rb",
+     "spec/rails_app/config/routes.rb",
+     "spec/rails_spec_helper.rb",
      "spec/spec_helper.rb"
   ]
 
@@ -62,12 +127,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_development_dependency(%q<cucumber>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_development_dependency(%q<rr>, [">= 0.10.10"])
     else
       s.add_dependency(%q<httparty>, [">= 0.5.2"])
       s.add_dependency(%q<rack-facebook>, [">= 0.0.3"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_dependency(%q<cucumber>, [">= 0"])
       s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_dependency(%q<rr>, [">= 0.10.10"])
     end
   else
     s.add_dependency(%q<httparty>, [">= 0.5.2"])
@@ -75,6 +142,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
     s.add_dependency(%q<cucumber>, [">= 0"])
     s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+    s.add_dependency(%q<rr>, [">= 0.10.10"])
   end
 end
 

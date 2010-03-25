@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'rake'
+require 'yard'
 
 begin
   require 'jeweler'
@@ -71,3 +72,6 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+# Yard
+YARD::Rake::YardocTask.new
