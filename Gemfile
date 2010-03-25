@@ -1,7 +1,7 @@
 source "http://gemcutter.org"
 
 # Need to install Rails from source
-#gem "rails", :git => "git://github.com/rails/rails.git"
+gem "rails", :git => "git://github.com/rails/rails.git"
 gem "httparty", "0.5.2"
 gem "rack-facebook", "0.0.3"
 
