@@ -22,3 +22,5 @@ Spec::Runner.configure do |config|
     FaceB::Session.reset!
   end
 end
+
+TMP_DIR = File.join(File.dirname(__FILE__), 'tmp')

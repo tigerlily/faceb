@@ -1,7 +1,0 @@
-Description:
-    Create The FaceB config file.
-
-Example:
-    `rails generate face_b`
-    `rails generate face_b --api-key="my-api-key" --secret-key="my-secret-key"`
-    
