@@ -8,7 +8,13 @@ module FaceB
 
     # Load the FaceB config file
     initializer "faceb.load_config_file" do |app|
-      @facebook_config = FaceB::Configuration.load_config_file(File.join(::Rails.root, 'config', 'faceb.yml'), ::Rails.env)
+      begin
+        @facebook_config = FaceB::Configuration.load_config_file(FaceB.config_file_path, ::Rails.env)
+      rescue Errno::ENOENT
+        puts "Warning : config/faceb.yml is not present. Maybe you should called ./script/rails generate face_b"
+      rescue
+        puts "Error during load FaceB config file."
+      end
     end
     
     # Load Rack-Facebook as a middleware    
@@ -16,7 +22,7 @@ module FaceB
       app.config.middleware.use Rack::Facebook, {
         :application_secret => @facebook_config.secret_key, 
         :api_key => @facebook_config.api_key
-      }
+      } if @facebook_config
     end
     
      # Registered FBML request type

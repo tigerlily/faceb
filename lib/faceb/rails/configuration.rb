@@ -23,7 +23,7 @@ module FaceB
     ##
     # Return the current configuration instance
     # 
-    # @return [Facebook::Configuration] The current configuration instance
+    # @return [FaceB::Configuration] The current configuration instance
     def self.config
       @config
     end
