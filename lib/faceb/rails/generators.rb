@@ -1,1 +1,3 @@
-require 'faceb/rails/generators/config/config_generator'
+Dir[File.dirname(__FILE__) + '/generators/**/*_generator.rb'].each { |generator| 
+  require generator
+}

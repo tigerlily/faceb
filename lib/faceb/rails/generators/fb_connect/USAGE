@@ -1,0 +1,7 @@
+Description:
+    Create xd_receiver file for Facebook connect.
+
+Example:
+    `rails generate face_b:fb_connect`
+    `rails generate face_b:fb_connect --ssl`
+    

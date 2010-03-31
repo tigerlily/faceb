@@ -52,7 +52,7 @@ First thing to do is to add FaceB as dependency of your new project, add this li
 
 Then call the initialization script like this :
 
-    $ ./script/rails generate face_b
+    $ ./script/rails generate face_b:config
 
 This generator will create a new file named `faceb.yml` in your `config` directory.
 Edit this new file with your Facebook application properties.
@@ -62,9 +62,12 @@ Edit this new file with your Facebook application properties.
 
 ## TODO
 
+- Add mutli Facebook application settings (alternative api key)
+- Add an option to insert API response in a specific Ruby Object
+- Add views helpers
+- Add Facebook connect helpers
 - Add Rails 2.3.x compatibility
-- Add mutli Facebook application settings
-
+- Add migration tools for Facebooker users
 
 
 ## Note on Patches/Pull Requests

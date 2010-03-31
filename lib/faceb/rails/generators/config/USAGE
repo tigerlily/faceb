@@ -4,4 +4,5 @@ Description:
 Example:
     `rails generate face_b:config`
     `rails generate face_b:config --api-key="my-api-key" --secret-key="my-secret-key"`
+    `rails generate face_b:config -a my-api-key -s my-secret-key`
     

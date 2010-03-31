@@ -25,5 +25,15 @@ module FaceB
       file_content.should =~ /api_key: my-api-key/
       file_content.should =~ /secret_key: my-secret-key/
     end
+    
+    
+    it "should accept aliases" do
+      ConfigGenerator.start(['-a=my-api-key', '-s=my-secret-key'], :destination_root => @destination)
+      
+      File.exists?(@config_file).should be_true
+      file_content = IO.read(@config_file)
+      file_content.should =~ /api_key: my-api-key/
+      file_content.should =~ /secret_key: my-secret-key/
+    end
   end
 end

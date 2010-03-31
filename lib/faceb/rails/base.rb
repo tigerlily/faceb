@@ -1,6 +1,5 @@
 require 'faceb/rails/configuration'
 require 'faceb/rails/railtie'
-#require 'faceb/rails/generators/faceb_generator'
 require 'faceb/rails/generators'
 
 module FaceB
