@@ -9,29 +9,53 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-03-25}
+  s.date = %q{2010-03-31}
   s.default_executable = %q{console}
   s.description = %q{Facebook library}
   s.email = %q{mathieu@tigerlilyapps.com}
   s.executables = ["console"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "Gemfile",
      "LICENSE",
-     "README.rdoc",
+     "README.md",
      "Rakefile",
      "VERSION",
      "bin/console",
-     "features/facebook-session.feature",
+     "faceb.gemspec",
+     "features/faceb-session.feature",
      "features/step_definitions/facebook-session_steps.rb",
      "features/support/env.rb",
+     "lib/faceb.rb",
+     "lib/faceb/api.rb",
+     "lib/faceb/base.rb",
+     "lib/faceb/rails.rb",
+     "lib/faceb/rails/base.rb",
+     "lib/faceb/rails/configuration.rb",
+     "lib/faceb/rails/controller.rb",
+     "lib/faceb/rails/generators.rb",
+     "lib/faceb/rails/generators/config/USAGE",
+     "lib/faceb/rails/generators/config/config_generator.rb",
+     "lib/faceb/rails/generators/config/templates/faceb.yml",
+     "lib/faceb/rails/generators/fb_connect/USAGE",
+     "lib/faceb/rails/generators/fb_connect/fb_connect_generator.rb",
+     "lib/faceb/rails/generators/fb_connect/templates/xd_receiver.html",
+     "lib/faceb/rails/generators/fb_connect/templates/xd_receiver_ssl.html",
+     "lib/faceb/rails/railtie.rb",
+     "lib/faceb/rails/tasks/faceb.tasks",
+     "lib/faceb/session.rb",
+     "spec/faceb_api_spec.rb",
+     "spec/faceb_base_spec.rb",
+     "spec/faceb_session_spec.rb",
+     "spec/rails/config_generator_spec.rb",
      "spec/rails/configuration_sepc.rb",
      "spec/rails/controller_spec.rb",
+     "spec/rails/fb_connect_generator_spec.rb",
      "spec/rails/railtie_spec.rb",
      "spec/rails_app/app/controllers/application_controller.rb",
      "spec/rails_app/app/controllers/posts_controller.rb",
@@ -44,6 +68,7 @@ Gem::Specification.new do |s|
      "spec/rails_app/config/environments/development.rb",
      "spec/rails_app/config/environments/production.rb",
      "spec/rails_app/config/environments/test.rb",
+     "spec/rails_app/config/faceb.yml",
      "spec/rails_app/config/initializers/backtrace_silencers.rb",
      "spec/rails_app/config/initializers/cookie_verification_secret.rb",
      "spec/rails_app/config/initializers/inflections.rb",
@@ -80,8 +105,10 @@ Gem::Specification.new do |s|
     "spec/faceb_api_spec.rb",
      "spec/faceb_base_spec.rb",
      "spec/faceb_session_spec.rb",
+     "spec/rails/config_generator_spec.rb",
      "spec/rails/configuration_sepc.rb",
      "spec/rails/controller_spec.rb",
+     "spec/rails/fb_connect_generator_spec.rb",
      "spec/rails/railtie_spec.rb",
      "spec/rails_app/app/controllers/application_controller.rb",
      "spec/rails_app/app/controllers/posts_controller.rb",

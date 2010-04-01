@@ -1,6 +1,4 @@
 require 'faceb/rails/configuration'
-require 'faceb/rails/railtie'
-require 'faceb/rails/generators'
 
 module FaceB
   class << self
@@ -20,5 +18,13 @@ module FaceB
     def config
       FaceB::Configuration.config
     end    
+    
+    # Change method signature with default api_key and secret_key
+    def new_with_rails(api_key = FaceB.config.api_key, secret_key = FaceB.config.secret_key, session_key = nil)
+      new_without_rails(api_key, secret_key, session_key)
+    end
+    
+    alias_method :new_without_rails, :new
+    alias_method :new, :new_with_rails
   end
 end

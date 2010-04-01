@@ -33,6 +33,7 @@ module FaceB
     # load Facebook Specific tasks
     rake_tasks do
       load "faceb/rails/tasks/faceb.tasks"
+      load "faceb/rails/tasks/tunnel.tasks"
     end
   end
 end
