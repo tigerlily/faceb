@@ -42,7 +42,7 @@ module FaceB
       
       def initialize(data)
         @data = data
-        raise Error.new(data["error_code"], data["error_msg"]) if data.include?("error_msg")
+        raise Error.new(data["error_code"], data["error_msg"]) if data.respond_to?(:include?) && data.include?("error_msg")
       end
       
       def method_missing(name, *args)

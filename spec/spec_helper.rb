@@ -7,6 +7,7 @@ require 'spec/autorun'
 
 require 'rails_spec_helper' if ENV["FACEB_TEST"] == 'rails'
 
+
 # Stop all requests
 require 'fakeweb'
 FakeWeb.allow_net_connect = false
