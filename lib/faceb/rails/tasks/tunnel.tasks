@@ -27,7 +27,7 @@ namespace :faceb do
     end
 
     task :config => :environment do
-     facebook_config = File.join(Rails.root, 'config', 'facebook.yml')
+     facebook_config = File.join(Rails.root, 'config', 'faceb.yml')
      FACEBOOKER = YAML.load(ERB.new(File.read(facebook_config)).result)[Rails.env]
      @public_host_username = FACEBOOKER['tunnel']['public_host_username'] 
      @public_host = FACEBOOKER['tunnel']['public_host'] 
