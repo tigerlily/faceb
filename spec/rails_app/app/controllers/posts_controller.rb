@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  include Facebook::Rails::Controller
+  include FaceB::Rails::Controller
   
   def index
     render 'index'

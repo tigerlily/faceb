@@ -5,10 +5,15 @@ module FaceB
       def self.included(controller)
         controller.extend(ClassMethods)
         controller.before_filter :set_facebook_request_format
+        #controller.helper_method :facebook_session
+      end
+      
+      def facebook_session
+        FaceB::Session.current
       end
       
       def create_facebook_session
-        FaceB::Session.create(Facebook.config.api_key, Facebook.config.secret_key, env['facebook.session_key'])
+        FaceB::Session.create(FaceB.config.api_key, FaceB.config.secret_key, env['facebook.session_key'])
       end
       
       def ensure_authenticated_to_facebook

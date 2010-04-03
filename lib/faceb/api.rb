@@ -24,6 +24,7 @@ module FaceB
       params[:call_id] = Time.now.tv_sec.to_s if params.delete(:call_id)
       params[:session_key] = @session.session_key if params[:session_key] == true && !!@session.session_key
       
+      puts "METHOD : #{method}, PARAMS : #{params.inspect}"
       p = Api.default_params.merge(:method => method, :api_key => @session.api_key)
       p.merge!(params)
       
