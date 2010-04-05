@@ -5,7 +5,7 @@ module FaceB
       def self.included(controller)
         controller.extend(ClassMethods)
         controller.before_filter :set_facebook_request_format
-        #controller.helper_method :facebook_session
+        controller.helper_method :facebook_session
       end
       
       def facebook_session

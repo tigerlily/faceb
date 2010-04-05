@@ -8,4 +8,5 @@ else
 end
 
 require 'faceb/rails/base'
+require 'faceb/rails/api'
 require 'faceb/rails/controller'
