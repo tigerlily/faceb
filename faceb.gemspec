@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-03-31}
+  s.date = %q{2010-04-05}
   s.default_executable = %q{console}
   s.description = %q{Facebook library}
   s.email = %q{mathieu@tigerlilyapps.com}
@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
      "lib/faceb/api.rb",
      "lib/faceb/base.rb",
      "lib/faceb/rails.rb",
+     "lib/faceb/rails/api.rb",
      "lib/faceb/rails/base.rb",
      "lib/faceb/rails/configuration.rb",
      "lib/faceb/rails/controller.rb",
@@ -46,8 +47,11 @@ Gem::Specification.new do |s|
      "lib/faceb/rails/generators/fb_connect/fb_connect_generator.rb",
      "lib/faceb/rails/generators/fb_connect/templates/xd_receiver.html",
      "lib/faceb/rails/generators/fb_connect/templates/xd_receiver_ssl.html",
+     "lib/faceb/rails/rails_23_init.rb",
      "lib/faceb/rails/railtie.rb",
+     "lib/faceb/rails/tasks.rb",
      "lib/faceb/rails/tasks/faceb.tasks",
+     "lib/faceb/rails/tasks/tunnel.tasks",
      "lib/faceb/session.rb",
      "spec/faceb_api_spec.rb",
      "spec/faceb_base_spec.rb",
@@ -96,7 +100,7 @@ Gem::Specification.new do |s|
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/pointcom/faceb}
+  s.homepage = %q{http://github.com/tigerlily/faceb}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
