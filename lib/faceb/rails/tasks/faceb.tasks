@@ -1,6 +1,6 @@
 namespace :faceb do
   desc "Configure environment to use FaceB"
   task :config => :environment do
-    puts "coucou"
+    # Todo config task for Rails 2.3.x
   end
 end

@@ -1,50 +1,31 @@
 # FaceB
 
-FaceB is a Facebook client Library aim to be more modular than Facebooker. You can use it only for the Facebook API client or if you use Rails you can have a lot of stuff helping you to develop your Facebook application.
+FaceB is a Facebook Library which aims to be more modular than Facebooker. You can use it only for the Facebook API client or if you use Rails you can have a lot of stuff helping you to develop your Facebook application (controller, helper methods).
 
-
-## Why i should use FaceB instead of Facebooker ?
-
-Firstable, FaceB is inspired by Facebooker and MiniFB. The goal of FaceB is to have the best of both of world. The ease to call the API without any configuration file (MiniFB) and the Rails integration (Facebooker).
-
-Besides, unlike Facebooker, FaceB try to keep his documentation complete and up to date.
-
-So to resume FaceB is :
-
-- Rails 3 compliant
-- really Modular
-- well documented
-- well tested
-- easy to test
-
-
-## Installation using RubyGems
+## Installation
 
     $ [sudo] gem install faceb
 
-
-## Installation from source
-
-    $ git clone git://github.com/tigerlily/faceb.git
-    $ bundle install
-
-
 ## Getting started
 
-### Facebook API interaction
+### Facebook API client
 
 FaceB is modular so you can use it just as a tool for interact with Facebook API.
 You are free to use this syntax :
 
+    require 'faceb'
     FaceB.call('api-key', 'secret-key', 'method.name', :param1 => 'value1')
 
 Or if you call more than once API methods, you can create a persistent session like that :
 
+    require 'faceb'
     FaceB.new('api-key', 'secret-key')
     FaceB.current_session.call('method.name1', :param1 => 'value1')
     FaceB.current_session.call('method.name2', :param1 => 'value1')
 
 ### Rails integration
+
+For now FaceB works only with Rails 3. A version compatible with Rails 2.3.x is in progress.
 
 First thing to do is to add FaceB as dependency of your new project, add this line to your `Gemfile` : 
 
@@ -58,17 +39,21 @@ This generator will create a new file named `faceb.yml` in your `config` directo
 Edit this new file with your Facebook application properties.
 
 
+## Rails 2.3.x
+
+A version compatible with Rails 2.3.x is in progress.
 
 
 ## TODO
 
 - Add mutli Facebook application settings (alternative api key)
-- Add an option to insert API response in a specific Ruby Object
-- Add views helpers
+- Add view helpers
 - Add Facebook connect helpers
 - Add Rails 2.3.x compatibility
-- Add migration tools for Facebooker users
 
+## Contributors
+
+- Mathieu Fosse
 
 ## Note on Patches/Pull Requests
  

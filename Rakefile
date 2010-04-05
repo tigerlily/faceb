@@ -9,7 +9,7 @@ begin
     gem.summary = %Q{Facebook library}
     gem.description = %Q{Facebook library}
     gem.email = "mathieu@tigerlilyapps.com"
-    gem.homepage = "http://github.com/pointcom/faceb"
+    gem.homepage = "http://github.com/tigerlily/faceb"
     gem.authors = ["Mathieu Fosse"]
     gem.add_dependency "httparty", ">= 0.5.2"
     gem.add_dependency "rack-facebook", ">= 0.0.3"
