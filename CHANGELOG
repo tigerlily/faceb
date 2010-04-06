@@ -1,0 +1,8 @@
+- 0.1.1 (April 6st, 2010)
+  - Added some Rails 2.3.x compatibility 
+  - Allow to reset the current session via 'reset!' instance method
+  - Renamed 'FaceB#current_session' in 'FaceB#session'
+  - Allow FaceB::Session to call Facebook API method dynamically.
+  eg :
+    session.users.getInfo :fields => 'name', :uids => 12345
+    => session.call('users.getInfo', :fields => 'name', :uids => 12345)
