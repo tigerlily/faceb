@@ -4,7 +4,7 @@ module FaceB
     # Return the current Facebook session
     # 
     # @return [FaceB::Session] The current facebook session
-    def current_session
+    def session
       Session.current
     end
     

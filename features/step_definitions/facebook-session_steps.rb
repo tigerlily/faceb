@@ -6,7 +6,7 @@ Given /^I have facebook instance configured$/ do
 end
 
 When /^I ask for the current Facebook session$/ do
-  FaceB.current_session
+  FaceB.session
 end
 
 Then /^I should retrieve the current Facebook session$/ do

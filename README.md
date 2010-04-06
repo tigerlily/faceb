@@ -20,8 +20,15 @@ Or if you call more than once API methods, you can create a persistent session l
 
     require 'faceb'
     FaceB.new('api-key', 'secret-key')
-    FaceB.current_session.call('method.name1', :param1 => 'value1')
-    FaceB.current_session.call('method.name2', :param1 => 'value1')
+    FaceB.session.call('users.getInfo', :fields => 'name', :uids => 123456)
+    FaceB.session.call('users.getInfo', :fields => 'name', :uids => 123456)
+
+Or you can even call API method dynamically :
+
+    require 'faceb'
+    FaceB.new('api-key', 'secret-key')
+    FaceB.session.users.getInfo(:fields => 'name', :uids => 123456)
+
 
 ### Rails integration
 
