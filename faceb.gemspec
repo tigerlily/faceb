@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{faceb}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mathieu Fosse"]
-  s.date = %q{2010-04-05}
+  s.date = %q{2010-04-06}
   s.default_executable = %q{console}
   s.description = %q{Facebook library}
   s.email = %q{mathieu@tigerlilyapps.com}
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "CHANGELOG",
      "Gemfile",
      "LICENSE",
      "README.md",
