@@ -25,23 +25,34 @@ Or if you call more than once API methods, you can create a persistent session l
 
 ### Rails integration
 
-For now FaceB works only with Rails 3. A version compatible with Rails 2.3.x is in progress.
+#### Rails 3 initialization
 
-First thing to do is to add FaceB as dependency of your new project, add this line to your `Gemfile` : 
+First thing to do is to add FaceB as dependency of your new project, add this line at the end of your `Gemfile` file : 
 
     gem 'faceb'
 
 Then call the initialization script like this :
 
-    $ ./script/rails generate face_b:config
+    $ ./script/rails generate face_b:config --api-key=xxxx --secret-key=xxxx
 
 This generator will create a new file named `faceb.yml` in your `config` directory.
 Edit this new file with your Facebook application properties.
 
 
-## Rails 2.3.x
+#### Rails 2.3.x initialization
 
-A version compatible with Rails 2.3.x is in progress.
+In your `config/environment.rb` add this line : 
+
+    Rails::Initializer.run do |config|
+      [...]
+      config.gem 'faceb'
+      [...]
+    end
+
+And run the following rake task :
+
+    rake face_b:config API_KEY=xxxx SECRET_KEY=xxxx
+
 
 
 ## TODO

@@ -1,6 +1,13 @@
-namespace :faceb do
+require 'erb'
+
+namespace :face_b do
   desc "Configure environment to use FaceB"
   task :config => :environment do
-    # Todo config task for Rails 2.3.x
+    ENV['API_KEY'] ||= ""
+    ENV['SECRET_KEY'] ||= ""
+    config_file = File.dirname(__FILE__) + '/../generators/config/templates/faceb.yml'
+    File.open(File.join(Rails.root, 'config', 'faceb.yml'), 'w') do |f|
+      f.write ERB.new(IO.read(config_file)).result(binding)
+    end
   end
 end

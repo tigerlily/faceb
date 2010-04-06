@@ -1,4 +1,4 @@
-namespace :faceb do
+namespace :face_b do
   
   tunnel_ns = namespace :tunnel do 
     # Courtesy of Christopher Haupt
