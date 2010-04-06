@@ -39,8 +39,13 @@ module FaceB
         FaceB::Session.current.should == @session
       end
       
-      it "should be able to reset the current session" do
+      it "should be able to reset the current session by class method" do
         FaceB::Session.reset!
+        FaceB::Session.current.should be_nil
+      end
+      
+      it "should be able to reset the current session by instance method" do
+        FaceB::Session.current.reset!
         FaceB::Session.current.should be_nil
       end
     end

@@ -15,6 +15,10 @@ module FaceB
       @current_session = nil
     end
     
+    def reset!
+      self.class.reset!
+    end
+    
     def initialize(api_key, secret_key, session_key = nil)
       @api_key            = api_key
       @secret_key         = secret_key
