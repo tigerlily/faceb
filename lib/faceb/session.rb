@@ -23,6 +23,7 @@ module FaceB
     end
     
     def call(method, params ={})
+      @scope = nil
       Api.new(self).call(method, params)
     end
     
@@ -33,6 +34,16 @@ module FaceB
     
     def secured?
       !!@user_facebook_uid
+    end
+    
+    # Allow session to dynamically call API method
+    def method_missing(method_name, args={})
+      if !!@scope
+        self.call("#{@scope}.#{method_name}", args)
+      else
+        @scope = method_name
+        self
+      end
     end
   end
 end
