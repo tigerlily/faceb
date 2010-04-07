@@ -1,6 +1,6 @@
 module FaceB
   class Session
-    attr_reader :api_key, :secret_key, :session_key, :user_facebook_uid
+    attr_reader :api_key, :secret_key, :session_key, :facebook_user_uid
     
     def self.create(api_key, secret_key, session_key = nil)
       @current_session = self.new(api_key, secret_key, session_key) unless defined?(@current_session) && !!@current_session
@@ -33,7 +33,7 @@ module FaceB
     
     def secure_with_session_key!(session_key)
       @session_key = session_key
-      @user_facebook_uid = self.call('users.getLoggedInUser', :session_key => session_key).data
+      @facebook_user_uid = self.call('users.getLoggedInUser', :session_key => session_key).data
     end
     
     def secured?

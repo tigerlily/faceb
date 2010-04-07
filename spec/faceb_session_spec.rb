@@ -79,7 +79,7 @@ module FaceB
         its(:api_key)     { should == 'api-key' }
         its(:secret_key)  { should == 'secret-key' }
         its(:session_key)       { should == 'session-key' }
-        its(:user_facebook_uid) { should == 12345 }
+        its(:facebook_user_uid) { should == 12345 }
         
         it { should be_an_instance_of(FaceB::Session) }
       end
