@@ -4,8 +4,6 @@ require 'rack/facebook'
 
 module FaceB
   class Railtie < ::Rails::Railtie
-    railtie_name :facebook
-
     # Load the FaceB config file
     initializer "faceb.load_config_file" do |app|
       begin
