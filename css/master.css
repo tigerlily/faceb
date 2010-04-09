@@ -1,0 +1,11 @@
+body { background: #FFF url(../images/logo.png) no-repeat 50% 0;}
+#geminstall { 
+  margin-top:400px; 
+  background: transparent url(../images/big-button.png) no-repeat 50% 0; 
+  height:60px;
+  text-align:center;
+  color:#FFF;
+  padding-top:15px;
+  font-size:1.2em;;
+  font-family:Monaco, monospace;
+}
