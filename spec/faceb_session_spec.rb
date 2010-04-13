@@ -3,25 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 module FaceB
   describe Session do
     
-    # Dynamic API call
-    context "When call API" do
-      before(:each) do
-        @session = FaceB::Session.new('api-key', 'secret-key')
-      end
-      
-      it "should be able to call an API method" do
-        mock(FaceB::Api).post(FaceB::Api::API_SERVER_URL, is_a(Hash)) { "data" }
-        response = @session.call('scope.api_method', :param1 => 'value1')
-        response.should be_an_instance_of(FaceB::Api::Response)
-        response.data.should == "data"
-      end
-      
-      it "should be able to dynamically build an API method" do
-        mock(@session).call('scope.api_method', :param1 => 'value1')
-        response = @session.scope.api_method(:param1 => 'value1')
-      end
-    end
-    
     # Create session
     context "When create session" do
       before(:each) do
@@ -83,6 +64,50 @@ module FaceB
         
         it { should be_an_instance_of(FaceB::Session) }
       end
+      
+      describe "#login_url" do
+        it "should be able to build login url for application" do
+          subject.login_url.should == "http://www.facebook.com/login.php?v=1.0&api_key=#{subject.api_key}"
+        end
+        
+        it "should be able to build login url for application with next param" do
+          subject.login_url(:next => 'http://www.nexturl.com').should =~ %r{http://www.facebook.com/login.php\?(.*)next=http%3A%2F%2Fwww.nexturl.com}
+        end
+      end
+      
+      describe "#secure_with_session_key!" do
+        it "should set facebook_user_uid" do
+          mock(subject).call('users.getLoggedInUser', :session_key => 'bad session key') { FaceB::Api::Response.new(123456) }
+          subject.secure_with_session_key!("bad session key")
+          subject.facebook_user_uid.should == 123456
+        end
+        
+        it "should raise an error if bad session key" do
+          mock(subject).call('users.getLoggedInUser', :session_key => 'bad session key') { 
+            FaceB::Api::Response.new({"error_code" => 102, "error_msg" => 'Session key invalid or no longer valid'}) 
+          }
+          lambda {
+            subject.secure_with_session_key!("bad session key")
+          }.should raise_error(FaceB::Api::Error, "Facebook error 102 : 'Session key invalid or no longer valid'")
+        end
+      end
+      
+      
+      # API call
+      describe "#call" do
+        it "should be able to call an API method" do
+          mock(FaceB::Api).post(FaceB::Api::API_SERVER_URL, is_a(Hash)) { "data" }
+          response = subject.call('scope.api_method', :param1 => 'value1')
+          response.should be_an_instance_of(FaceB::Api::Response)
+          response.data.should == "data"
+        end
+
+        it "should be able to dynamically build an API method" do
+          mock(subject).call('scope.api_method', :param1 => 'value1')
+          response = subject.scope.api_method(:param1 => 'value1')
+        end
+      end
+      
     end    
   end
 end

@@ -13,7 +13,9 @@ module FaceB
       end
       
       def create_facebook_session
-        FaceB::Session.create(FaceB.config.api_key, FaceB.config.secret_key, env['facebook.session_key'])
+        FaceB::Session.create(FaceB.config.api_key, FaceB.config.secret_key, env['facebook.session_key'] || false)
+      rescue FaceB::Api::Error
+        FaceB::Session.login_url
       end
       
       def ensure_authenticated_to_facebook

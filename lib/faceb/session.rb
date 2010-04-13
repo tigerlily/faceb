@@ -1,4 +1,5 @@
 module FaceB
+  require 'cgi'
   class Session
     attr_reader :api_key, :secret_key, :session_key, :facebook_user_uid
     
@@ -38,6 +39,23 @@ module FaceB
     
     def secured?
       !!@user_facebook_uid
+    end
+    
+        
+    ##
+    # Return the login url for current Facebook application
+    # 
+    # @param [Hash] params Options to pass to the URL
+    # @return [String] Current Facebook application login url
+    # 
+    # @example Login url with next URL and display params
+    #   session.login_url(:next => 'http://www.example.com', :display => 'popup')
+    #   => http://www.facebook.com/login.php?api_key=xxxxxxxxxx&v=1.0&next=http%3A%2F%2Fwww.example.com&display=popup
+    def login_url(params={})
+      url = "http://www.facebook.com/login.php"
+      params = {:api_key => api_key, :v => '1.0'}.merge(params)
+      params_str = params.map {|param, value| "#{param}=#{::CGI.escape(value)}"}.join('&')
+      [url, params_str].join '?'
     end
     
     # Allow session to dynamically call API method
